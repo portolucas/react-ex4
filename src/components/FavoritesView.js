@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { MoviesListContainer } from './MoviesListContainer';
 
 import {
     delFavorite,
@@ -7,24 +8,16 @@ import {
   } from "../actions/favoriteActions";
 
 
-export const FavoritesFilms = () => {
+export const FavoritesFilmsContainer = () => {
 
-    const favorite = useSelector(state => state.favorite);
+    const favorite = MoviesListContainer("favoriteFilm");
     const dispatch = useDispatch();
-
-    const consoleFavorite = () => {
-        console.log(favorite)
-    }
-
-    useEffect(() => {
-        consoleFavorite();
-    })
     return (
         <>
             <h1>Favorite Films</h1>
             <button onClick={() => dispatch(sortFavorite('Order'))}>ORDER</button>
             <ul>
-                {favorite.favoriteFilm.map(film => (
+                {favorite.map(film => (
                     <li key={film.name}>
                         {film.name}
                         <button onClick={() => dispatch(delFavorite({ name: film.name }))}>EXCLUIR</button>

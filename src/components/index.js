@@ -1,3 +1,6 @@
-export { MoviesList } from "./MoviesList";
-export { MovieId } from "./MovieId";
-export { FavoritesFilms } from "./Favorites";
+export { MoviesListView } from "./MovieListView";
+export { MoviesListContainer } from "./MoviesListContainer";
+export { MoviesIdView} from "./MoviesIdView";
+export { FavoritesFilmsContainer } from "./FavoritesView";
+export { MovieIdContainer } from './MovieIdContainer'
+
