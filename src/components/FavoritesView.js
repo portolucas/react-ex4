@@ -1,6 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { MoviesListContainer } from './MoviesListContainer';
+import { useDispatch, useSelector } from "react-redux";
 
 import {
     delFavorite,
@@ -9,18 +8,18 @@ import {
 
 
 export const FavoritesFilmsContainer = () => {
-
-    const favorite = MoviesListContainer("favoriteFilm");
     const dispatch = useDispatch();
+    const favorite = useSelector(state => state.favorite);
+    
     return (
         <>
             <h1>Favorite Films</h1>
             <button onClick={() => dispatch(sortFavorite('Order'))}>ORDER</button>
             <ul>
-                {favorite.map(film => (
-                    <li key={film.name}>
+                {favorite.favoriteFilm.map((film, index) => (
+                    <li key={index}>
                         {film.name}
-                        <button onClick={() => dispatch(delFavorite({ name: film.name }))}>EXCLUIR</button>
+                        <button onClick={() => dispatch(delFavorite({ id: film.id }))}>EXCLUIR</button>
                     </li>
                 ))}
             </ul>

@@ -19,13 +19,10 @@ export const favorite = (state = initialState, action) => {
         favoriteFilm: state.favoriteFilm.concat(action.payload)
       };
 
-    default:
-      return state;
-
     case DEL_FAVORITE:
       return {
         ...state,
-        favoriteFilm: state.favoriteFilm.filter(d => d.name !== action.payload)
+        favoriteFilm: state.favoriteFilm.filter(d => d.id !== action.payload)
       };
 
     case SORT_FAVORITE:
@@ -45,5 +42,9 @@ export const favorite = (state = initialState, action) => {
         ...state,
         popularFilm: state.popularFilm = action.payload
       };
+      
+    default:
+      return state;
   }
+  
 }

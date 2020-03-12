@@ -11,7 +11,7 @@ export const setFavorite = favoriteFilm => ({
 
 export const delFavorite = favoriteFilm => ({
   type: DEL_FAVORITE,
-  payload: favoriteFilm.name
+  payload: favoriteFilm.id
 });
 
 export const sortFavorite = favoriteFilm => ({
